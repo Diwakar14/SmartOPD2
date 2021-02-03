@@ -1,0 +1,108 @@
+.card{
+    padding: 0;
+    overflow: hidden;
+}
+
+strong{
+    font-weight: 500;
+    color: #000;
+}
+.header{
+    height: 280px;
+    background: url('../../../../../../../assets/img/icons/profile/PROFILE_BG.jpg') no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    // background-color: #eee;
+}
+
+.content{
+    margin:0 2rem;
+    margin-top: -110px;
+    z-index: 2;
+}
+
+.designation{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: .5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    line-height: 1;
+    font-size: .9rem;
+    color: white;
+    background: linear-gradient(-45deg, #065e51, #00d3af);
+}
+.rating{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    padding: 5px;
+    color: white;
+    font-size: .8rem;
+    background-color: #ffae00;
+    overflow: hidden;
+    width: 70px;
+    clip-path: polygon(0 0, 100% 0, 80% 50%, 100% 100%, 0 100%);
+}
+
+.profile-pic{
+    height: 200px;
+    width: 180px;
+    padding: 10px;
+    background-color: #fff;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.genderIcon{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    color: white;
+    background: linear-gradient(-45deg, #065e51, #00d3af);
+    i{
+        font-size: 1.2rem;
+        margin: auto;
+    }
+}
+.sec-title{
+    font-size: 0.9rem;
+}
+.blocker{
+    z-index: 5;
+}
+.profile-details{
+    h5{
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom:0;
+    }
+    small{
+        color: #000;
+    }
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
+}
+.iconCircular{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 80px;
+    background-color: #005c6610;
+    display: flex;
+    justify-content: center;
+    img{
+        margin: auto;
+    }
+}

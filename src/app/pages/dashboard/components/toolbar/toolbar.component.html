@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button matRipple class="side-navbar-toggle" (click)="onClick()">
+            <i class="fa fa-bars" aria-hidden="true"></i></button>
+        <img id="navbar-logo" src="http://54.186.217.203:5011/storage/images/logo_mini.png">
+        <a class="navbar-brand" href="/">Smart OPD</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="date" aria-current="page">{{date|date:'EEEE, MMMM d, y, h:mm a'}}</span>
+                </li>
+                <li class="nav-item">
+                    <button class="btn" matRipple (click)="toggleFullScreen()">
+                        <i *ngIf="!isFullScreen" class="material-icons" aria-hidden="true">fullscreen</i>
+                        <i *ngIf="isFullScreen" class="material-icons" aria-hidden="true">fullscreen_exit</i>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button matRipple class="btn">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button matRipple class="btn" (click)="confirmLogout()">
+                        <i class="material-icons">logout</i>
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button matRipple class="btn p-1" style="border-radius: 50px;">
+                        <img id="profile-pic" class="p-0 m-0" src="../../../../../assets/img/icons/doctor_grey.png">
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

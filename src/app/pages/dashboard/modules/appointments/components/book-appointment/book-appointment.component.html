@@ -1,0 +1,29 @@
+<div class="book-appnt">
+    <div id="page-header" class="align-items-end pb-2">
+        <div class="d-flex align-items-baseline">
+            <h1 class="mb-0">Book Appointment</h1>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item">Appointments</li>
+                <li class="breadcrumb-item active" aria-current="page">Book Appointment</li>
+            </ol>
+        </div>
+    </div>
+
+    <section>
+        <div class="row">
+            <div class="col-md-4 col-lg-4">
+                <app-search-doc (selectedItem)="selectedDoc($event)"></app-search-doc>
+                <app-search-pat></app-search-pat>
+            </div>
+            <div class="col-md-8 col-lg-8">
+                <div class="card">
+                    <div class="card-title">Search Patients</div>
+                    <div class="card-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

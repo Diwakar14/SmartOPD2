@@ -1,0 +1,183 @@
+
+$cyan: #cffffd;
+$darkcyan: #7cd6d4;
+$lamp: #ffe7ae;
+$darklamp: #fcb256;
+$mint: #d9edc0;
+$darkmint: #b2d092;
+
+.black {
+    color: #000 !important;
+}
+
+.btn-primary{
+    font-size: .9rem !important;
+}
+.bubbleChart{
+  width: 100%;
+  margin-top: 1rem;
+}
+.columnChart{
+  width: 100%;
+  height: 400px;
+  margin: auto;
+}
+.donutChart{
+  width: 100%;
+  height: 280px;
+}
+.bg-cyan{
+    background-color: $darkcyan;
+}
+.bg-orange{
+    background-color: $darklamp;
+}
+.gradient-bg-cyan{
+    background: linear-gradient(45deg, transparent, #7cd6d47e);
+    color: #7cd6d4;
+}
+.gradient-bg-lamp{
+    background: linear-gradient(45deg, transparent,  #fcb1567e);
+    color: $darklamp;
+}
+.gradient-bg-mint{
+    background: linear-gradient(45deg, transparent, #b2d0927e);
+    color: $darkmint;
+}
+
+.appointments-area .stats {
+    display: flex;
+    margin-top: 2.5rem;
+    // justify-content: space-between;
+}
+.home{
+    padding: 1rem 2rem;
+}
+
+.departments-area .departments {
+    margin-top: 1rem;
+    width: 100%;
+}
+.departments-area .departments thead td {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.departments-area .departments tbody td {
+    padding-top: 0.5rem;
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.departments-area .departments tbody td i {
+    margin-right: 0.5rem;
+    color: orange;
+    opacity: .7;
+}
+.card .icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .icon i{
+    color: inherit;
+    font-size: 1.2rem;
+}
+.card h5{
+    margin-bottom: 0;
+}
+.card h4,.card h6{
+    margin-bottom: 0;
+}
+#item-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    h4{
+        font-weight: 600;
+    }
+}
+#item-cards .card{
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 1rem 1.2rem;
+}
+#item-cards .card:last-child{
+    margin-bottom: 0;
+}
+.stats{
+    label{
+        text-transform: uppercase;
+    }
+    h2{
+        font-weight: 600;
+    }
+}
+.totalPatient{
+        text-transform: uppercase;
+        font-size: .8rem;
+    }
+.details{
+    text-align: left;
+        padding: 2.5rem 0;
+    .avarage{
+        margin: 1.5rem 0;
+        h6{
+            font-size: .9rem;
+            color:#aaa;
+            font-weight: 300;
+        }
+        h2{
+            font-size: 2rem;
+            font-family: 'Mukta';
+        }
+    }
+    .chart-label{
+        padding: 0 .5rem;
+        font-family: 'Mukta';
+        h6{
+            font-size: .9rem;
+            color:#aaa;
+            font-weight: 300;
+        }
+        h4{
+            font-family: 'Mukta';
+        }
+        .dot{
+            height: 10px;
+            width: 10px;
+            border-radius: 10rem;
+        }
+    }
+}
+.btn-custom{
+    border-radius: 5px;
+    background-color: #7cd6d434;
+    color: $darkcyan;
+    border-color: $cyan;
+    margin-top: 2rem;
+}
+.doc-photo{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50rem;
+}
+
+.table tbody td, .table tbody th {
+    padding: 0.5rem !important;
+}
+@media (min-width: 1500px){
+    .home{
+        padding: 1.5rem 4rem;
+    }
+}

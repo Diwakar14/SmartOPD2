@@ -1,0 +1,18 @@
+<a class="card me-2 mb-2 position-relative" (deferLoad)="docData.doctor" routerLink="{{docData.doctor_id}}">
+    <div class="photo">
+        <img src="{{docData.doctor.photo || '../../../../../../../assets/img/icons/doctor_grey.png' }}" width="100%"
+            loading="lazy" />
+    </div>
+    <div class="content">
+        <div class="text-muted text-small">{{docData.doctor.ref_id}}</div>
+        <div class="docName">{{docData.doctor.name}}</div>
+        <div class="text-muted text-small mb-3">{{docData.designation|uppercase}}</div>
+        <div class="appnt-count ">42 Appointments</div>
+    </div>
+    <div class="status">
+        <img *ngIf="docData.isActive" src="../../../../../../../assets/img/icons/docCard/active.png"
+            alt="{{docData.isActive}}" width="100%">
+        <img *ngIf="!docData.isActive" src="../../../../../../../assets/img/icons/docCard/inactive.png"
+            alt="{{docData.isActive}}" width="100%">
+    </div>
+</a>

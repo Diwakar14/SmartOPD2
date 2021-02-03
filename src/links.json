@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Appointments",
+        "icon": "",
+        "href": "",
+        "description": "All Appointments"
+    },
+    {
+        "title": "Book Appointments",
+        "icon": "",
+        "href": "",
+        "description": "Book your appointment"
+    },
+    {
+        "title": "Patients",
+        "icon": "",
+        "href": "",
+        "description": "All Patients"
+    }
+]

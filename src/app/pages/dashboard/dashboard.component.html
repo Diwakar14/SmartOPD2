@@ -1,0 +1,16 @@
+<div class="dashboard" id="dashboard">
+    <app-toolbar (toggle)="toogleSidebar($event)"></app-toolbar>
+    <mat-progress-bar color="warn" style="position: absolute;top: 73px; z-index: 100;" mode="query" *ngIf="!loaded">
+    </mat-progress-bar>
+
+    <div class="main">
+        <app-sidebar [isSidebarCollapsed]="isSidebarCollapsed"
+            [class]="isSidebarCollapsed?'sidebarNonCollapsed':'sidebarCollapsed'">
+        </app-sidebar>
+        <div class="main-content" [class.loaded]="loaded" data-scrollbar>
+            <router-outlet *ngIf="loaded"></router-outlet>
+        </div>
+        <app-quick-access @fadeOut *ngIf="showQA" (closeQuickAccess)="closeQuickAccess()"></app-quick-access>
+        <ng-keyboard-shortcuts [shortcuts]="shortcuts"></ng-keyboard-shortcuts>
+    </div>
+</div>

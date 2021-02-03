@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-title">Search Patients</div>
+    <div class="card-content">
+        <div class="inputBox flex align-items-center">
+            <input type="search" #searchPatientApp autocomplete="off" class="searchInput"
+                placeholder="Search by patient by name, reference id, phone number" />
+            <button class="search">
+                <img [hidden]="loadingSearchDataPat" src="../../../../../../../assets/img/icons/search.svg"
+                    style="width: 20px;" />
+                <span [hidden]="!loadingSearchDataPat">
+                    <img src="../../../../../../../assets/img/icons/tail-spin.svg" width="20px" alt="">
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.dialog-header{
+    padding: .5rem;
+    border-bottom: 1px solid #eee;
+}
+.dialog-title{
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+.material-icons{
+    font-size: 1.5rem !important;
+    transition: all ease .2s;
+    &:hover{
+        transition: all ease .2s;
+        transform: rotate(90deg);
+    }
+}
+
+.dialog-close:hover{
+    cursor: pointer;
+}
+.dialog-content{
+    padding:1rem;
+}
+.dialog-footer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: .5rem;
+    border-top: 1px solid #eee;
+}

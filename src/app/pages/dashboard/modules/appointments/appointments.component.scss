@@ -1,0 +1,65 @@
+.appnt{
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem
+}
+
+.inputBox{
+    width: 16rem;
+}
+.text-small{
+    font-size: .7rem;
+}
+.appnt .content{
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.table{
+    margin-bottom: .5rem;
+    background-color: transparent;
+    border-collapse: separate;
+    border-spacing: 0px 0.3rem;
+    thead{
+        tr th{
+            color: #6d6e70;
+        }
+    }
+    tbody{
+        tr {
+                
+                border-radius: 8px;
+                transition: all ease .2s;
+                background-color: #fff;
+                overflow: hidden;
+                box-shadow: 0 5px 8px #969ea40e;
+                &:hover{
+                    transition: all ease .2s;
+                    border: 1px solid #091921;
+                    box-shadow: 0 10px 15px #969ea428;
+                    transform: scale(1);
+                }
+                &:hover td{
+                    transition: all ease .3s;
+                    border-right: 0px solid #F7F7F9;
+                }
+        }
+        
+        td:first-child{
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        td:last-child{
+            transition: all ease .3s;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-right: 10px solid #F7F7F9;
+        }
+    }
+}
+
+@media(min-width: 1500px){
+    .appnt{
+        padding: 1.5rem 4rem;
+    }
+}

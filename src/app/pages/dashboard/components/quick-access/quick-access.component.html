@@ -1,0 +1,20 @@
+<div class="quick-access-backdrop" @fadeIn>
+    <div class="quick-access">
+        <div class="shortcut d-flex">
+            <app-quick-access-items (itemSelected)="showUserInfo($event)" *ngFor="let quickAccess of quickAccessLinks"
+                [item]="quickAccess">
+            </app-quick-access-items>
+        </div>
+        <div class="search-box">
+            <h5>Search for featues</h5>
+            <input autofocus (keyup)="handleKeyUp($event)" type="text" placeholder="Search Featues"
+                class="form-control">
+        </div>
+        <div class="recent-activity">
+            <h6>Recent Activity</h6>
+        </div>
+        <!-- <ul class="search-result">
+            <li *ngFor="let result of searchResult">{{result.name}}</li>
+        </ul> -->
+    </div>
+</div>

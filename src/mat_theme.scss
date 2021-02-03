@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$smartOPD-primary: mat-palette($mat-indigo);
+$smartOPD-accent:  mat-palette($mat-pink, A200, A100, A400);
+$smartOPD-warn:    mat-palette($mat-orange);
+
+$smartOPD-theme: mat-light-theme((
+  color: (
+    primary: $smartOPD-primary,
+    accent: $smartOPD-accent,
+    warn: $smartOPD-warn,  
+  )
+));
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Mukta, sans serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+  
+);
+
+.mat-form-field-underline{
+  height: 2px !important;
+}
+
+@include angular-material-theme($smartOPD-theme);
+
+@include angular-material-typography($custom-typography);

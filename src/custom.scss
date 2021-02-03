@@ -1,0 +1,333 @@
+body{
+    background: #fcfcff;
+    font-family: 'Mukta', sans-serif;
+    color: #666;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Maven Pro', sans-serif;
+    color: #1e2432;
+    letter-spacing: 0.06rem;
+}
+
+.bg-theme{
+    background: #ffae00;
+}
+
+.text-orange{
+    color: #EA8B24 !important;
+    font-weight: 400;
+}
+.text-muted{
+    color: #6d6e70 !important;
+    font-weight: 400;
+}
+.text-small{
+    font-size: .75rem;
+}
+.side-navbar-toggle{
+    margin-right: 1rem;
+}
+
+#wrapper{
+    padding-top: 4rem;
+}
+
+.page-container{
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem
+}
+
+#content{
+    margin-left: 14rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    transition: all ease 0.2s;
+}
+
+#content.content-collapse{
+    margin-left: 6rem;
+}
+
+
+#page-header{
+    display: flex;
+    align-items: baseline;
+    border-bottom: 2px double #eceeef;
+}
+#page-header h1{
+    font-size: 2rem;
+    font-weight: 600;
+}
+#page-header .breadcrumb{
+
+    background: transparent;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 0;
+    margin-left: 1rem;
+}
+#page-header .breadcrumb-item a{
+    color: #a16c04;
+}
+#page-header .breadcrumb-item{
+    color: orange;
+}
+
+#page-content{
+    margin-top: 1rem;
+    position: relative;
+}
+#page-content h5 {
+    letter-spacing: 0.05rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 500;
+}
+#page-content .card{
+    padding: 1rem;
+    border: none;
+    box-shadow: 0 0 20px rgba(224, 224, 229, 0.5);
+    margin-bottom: 1rem;
+
+}
+.card{
+    padding: 1rem;
+    border: none;
+    box-shadow: 0 0 20px rgba(224, 224, 229, 0.5);
+    margin-bottom: 1.5rem;
+    height: 100%;
+    .card-title{
+        letter-spacing: 0.05rem;
+        font-family: 'Mukta', sans-serif;
+        font-weight: 500;
+        border-bottom: 1px solid lightgray;
+        padding: 5px 15px;
+        color: #1e2432;
+        font-size: 1.25rem;
+        line-height: normal;
+    }
+    .card-content{
+        padding: 0rem 1rem 1rem 1rem;
+    }
+}
+
+.card-height-auto{
+    height: auto !important;
+}
+.card h5{
+    letter-spacing: 0.05rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 500;
+}
+#page-content .card-none{
+    padding: 1rem;
+}
+
+#page-content h5{
+    letter-spacing: 0.05rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 500;
+}
+
+.blocker{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #fcfcff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputBox{
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    width: 100%;
+    .search{
+        background: transparent;
+        outline: none;
+        border: none;
+        color: inherit;
+        margin-right: 0;
+        width: 2.5rem;
+        img{
+            opacity: .5;
+        }
+    }
+    .searchInput{
+        outline: none;
+        border: none;
+        font-size: 0.8rem;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 12px;
+        width: 100%;
+        background: transparent;
+       
+    }
+    &:focus-within{
+        border:1px solid #687477;
+    }
+    .searchInput::placeholder{
+        font-size: 0.8rem;
+        color: #687477;
+    }
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 1);
+    opacity: 0.5;
+    display: block;
+    background: url('assets/img/icons/calendar.svg') no-repeat;
+    width: 15px;
+    height: 15px;
+    border-width: thin;
+}
+
+.table{
+    margin-bottom: .5rem;
+    background-color: transparent;
+    border-collapse: separate;
+    border-spacing: 0px 0.3rem;
+    thead{
+        tr th{
+            font-size: .9rem;
+            font-weight: 600;
+            color: #6d6e70;
+            padding: 1rem;
+            letter-spacing: 0.4px;
+            border: none;
+            text-transform: uppercase;
+            background:transparent;
+        }
+    }
+    tbody{
+        tr {
+                
+                border-radius: 8px;
+                transition: all ease .2s;
+                background-color: #fff;
+                overflow: hidden;
+                border-color: transparent;
+                box-shadow: 0 5px 8px #969ea40e;
+                &:active{
+                    background: rgba(43, 95, 124, 0.05) !important;
+                }
+                &:hover{
+                    transition: all ease .2s;
+                    box-shadow: 0 10px 15px #969ea428;
+                    transform: scale(1);
+                    cursor: pointer;
+                }
+                &:hover td{
+                    transition: all ease .3s;
+                    border-right: 0px solid #F7F7F9;
+                }
+        }
+        
+        td:first-child{
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        td:last-child{
+            transition: all ease .3s;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-right: 10px solid #F7F7F9;
+        }
+    }
+}
+.table tbody td, .table tbody th{
+    font-size: .9rem;
+    padding: 1rem;
+    font-weight: 400;
+}
+.table td, .table th {
+    vertical-align: middle;
+
+}
+
+
+// Buttons
+.btn:focus{
+    box-shadow: none;
+}
+.btn-primary{
+   border-radius: 8px;
+    border: none;
+    color: #fff;
+    background: linear-gradient(-45deg, #065e51, #00d3af);
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: none !important;
+}
+.btn-sm{
+    font-size: 0.8rem !important;
+    padding: 0.3rem .8rem !important;
+}
+.btn-primary:hover{
+    background: linear-gradient(-45deg, #00d3af,#065e51);
+}
+
+
+.btn-outline-primary{
+    border-radius: 8px;
+    border: 1px solid #b3bcbf;
+    color: #00997C;
+    font-size: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: none !important;
+}
+.btn-outline-primary:hover{
+    background: #00997C;
+    color: white !important;
+    border-color: #00997C !important;
+}
+
+// Inputs
+textarea,input.form-control{
+    font-size: 16px;
+    color: #091921;
+    box-shadow: none;
+    border: none;
+    border-bottom: 2px solid #eee;
+    transition: all ease 0.3s;
+    padding: 0.1rem;
+    border-radius: 0;
+    font-weight: 500;
+}
+
+textarea,input.form-control:focus{
+    border:none;
+    box-shadow: none;
+    border-bottom: 2px solid #EA8B24 !important;
+}
+
+/*Big Screeen CSS*/
+@media(min-width: 1500px) {
+    #content{
+        height: 200px;
+        padding-top: 2rem;
+    }
+    .page-container{
+        padding: 1.5rem 6rem;
+    }
+    
+    .grid-view{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+        column-gap: 1.2rem !important;
+        row-gap: 1.2rem !important;
+    }
+    .list{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    }
+}

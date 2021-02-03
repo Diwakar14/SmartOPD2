@@ -1,0 +1,52 @@
+.list-item{
+    display: flex;
+    align-items: flex-start;
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #808080;
+    &:last-child{
+        border-bottom: 0px solid #808080;
+    }
+    .pic{
+        height: 90px;
+        width: 90px;
+        margin-right: 0.5rem;
+        border-radius: 60px;
+    }
+}
+.list-heading{
+    display: flex;
+    padding: 0.5rem;
+    justify-content: space-between;
+    h5{
+        text-transform: uppercase;
+        color: #6d6e70;
+        font-size: .9rem;
+        font-weight: 500;
+    }
+}
+.rating{
+    margin-left: .5rem;
+    .heading{
+        display: flex;
+        h5{
+            font-size: 1rem;
+        }
+    }
+    .review{
+        font-size: .9rem;
+    }
+}
+
+.wrp{
+    display: flex;
+    flex: 1;
+}
+.disease{
+    padding: 0 2rem;
+    color: #089eae;
+}
+.line{
+    width: 1px;
+    background-color: #6d6e70;
+    height: 80px;
+}

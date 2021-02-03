@@ -1,0 +1,48 @@
+<div class="card p-0 card-height-auto">
+    <div class="card-title">
+        <img *ngIf="chartTitle == 'Revenue'; else monthly"
+            src="../../../../../../../assets/img/icons/profile/REVENUE.png" width="20px" alt="">
+        <ng-template #monthly>
+            <img src="../../../../../../../assets/img/icons/profile/MONTHLY-APPOINTMENTS.png" width="20px" alt="">
+        </ng-template>
+        <span class="ms-2">{{chartTitle||'Chart Title'}}</span>
+    </div>
+    <div class="card-content position-relative">
+        <div class="blocker" *ngIf="loading; else content">
+            <img src="../../../../../../../assets/img/icons/spinning-circles.svg" width="40px" alt="loading...">
+        </div>
+        <ng-template #content>
+            <div class="row">
+                <div class="col-md-8 col-lg-8">
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                        [markers]="chartOptions.markers" [xaxis]="chartOptions.xaxis" [grid]="chartOptions.grid"
+                        [stroke]="chartOptions.stroke">
+                    </apx-chart>
+                </div>
+                <div class="col-md-4 col-lg-4 d-flex justify-content-center align-items-center flex-column ps-3 pe-2">
+                    <div class="d-flex align-items-center w-75">
+                        <div class="icon">
+                            <img src="../../../../../../../assets/img/icons/profile/ONLINE-CONSULTATION.png"
+                                alt="online" width="100%">
+                        </div>
+                        <div class="ms-3" style="flex:1">
+                            <strong class="text-center d-block">Rs. 200</strong>
+                            <div class="text-muted text-small text-center">Online Consultation</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center w-75 mt-4">
+                        <div class="icon">
+                            <img src="../../../../../../../assets/img/icons/profile/OPD-VISIT.png" alt="online"
+                                width="100%">
+                        </div>
+                        <div class="ms-3" style="flex:1">
+                            <strong class="text-center d-block">Rs. 400</strong>
+                            <div class="text-muted text-small text-center">OPD Visit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </div>
+</div>

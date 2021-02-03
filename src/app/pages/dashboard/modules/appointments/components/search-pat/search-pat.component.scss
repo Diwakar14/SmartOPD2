@@ -1,0 +1,12 @@
+.card{
+    height: 50%;
+    padding: 0;
+    overflow: visible;
+    .card-title{
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid #eee;
+    }
+    .card-content{
+        padding: 0.5rem 1rem;
+    }
+}

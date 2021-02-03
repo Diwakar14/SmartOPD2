@@ -1,0 +1,25 @@
+<div class="position-relative">
+    <div class="blocker" [hidden]="!loading">
+        <img src="../../../../../assets/img/icons/tail-spin.svg" width="40px" alt="loading">
+    </div>
+    <div class="dialog-header d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="dialog-icon me-2">
+                <span class="material-icons">
+                    info
+                </span>
+            </div>
+            <div class="dialog-title">{{data?.title||'Modal Title'}}</div>
+        </div>
+        <div class="dialog-close" mat-button mat-dialog-close>
+            <span class="material-icons">clear</span>
+        </div>
+    </div>
+    <div class="dialog-content">
+        {{data?.info||''}}
+    </div>
+    <div class="dialog-footer">
+        <button class="btn btn-sm btn-outline-primary border-0" [mat-dialog-close]="{action:false}">Cancel</button>
+        <button class="btn btn-primary btn-sm ms-2" (click)="logout()">OK</button>
+    </div>
+</div>

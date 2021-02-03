@@ -1,0 +1,59 @@
+<div id="contentToConvert" *ngIf="confirmBooking">
+    <title>Demo SmartOPD</title>
+    <div style="width: 604.7px; display: block; margin: auto; font-family: arial; font-size: 14px;">
+        <header style="height: 48.8px;"></header>
+        <div style="height: 574.4px;position: relative;">
+            <div style="left: 11.3px; top: 22.33px; width: 283.4px; height: 56.6px; position: absolute;">
+                <div style="left: 85; top: 2px; position: relative;">{{confirmBooking.patient.ref_id || '-'}} </div>
+                <div style="left: 85; top: 5px; position: relative;" *ngIf="confirmBooking.isSelfBooking">
+                    {{confirmBooking.patient.name || '-'}}</div>
+                <div style="left: 85; top: 5px; position: relative;" *ngIf="!confirmBooking.isSelfBooking">
+                    {{confirmBooking.other_patient_name==null?'-':confirmBooking.other_patient_name}}</div>
+                <div style="left: 85; top: 7px; position: relative;">
+                    {{confirmBooking.patient.age || confirmBooking.patient.dob || '-'}} /
+                    {{confirmBooking.patient.gender || '-'}}</div>
+            </div>
+            <div style="left: 306.1px; top: 22.33px; width: 283.4px; height: 56.6px; position: absolute;">
+                <div style="left: 65.3; top: 2px; position: relative; ">{{confirmBooking.doctor.name || '-'}} </div>
+                <div style="left: 65.3; top: 5px; position: relative;">-</div>
+                <div style="left: 65.3; top: 7px; position: relative;">
+                    {{confirmBooking.appointment_date == null ? '-' : confirmBooking.appointment_date|date:'shortTime'}}
+                </div>
+            </div>
+            <div style="height:442.2px; left: 11.3px; width: 579px; top: 79.5px;  position: absolute;">
+                <div style="left: 11px; top: 14px; position: relative;">Booking Id: <b
+                        style="font-size: 16px;">{{confirmBooking.booking_id || '-'}}</b> </div>
+                <div style="left: 250px; top: 14px; position: absolute;" *ngIf="origin != 'admission'">App. Date:
+                    <b style="font-size: 16px;">
+                        {{confirmBooking.appointment_date==null?'-':confirmBooking.appointment_date}} </b>
+                </div>
+                <div style="left: 235px; top: 14px; position: absolute;" *ngIf="origin == 'admission'">App. Date:
+                    <b style="font-size: 16px;">
+                        {{confirmBooking.appointment_date==null?'-':confirmBooking.appointment_date}} </b>
+                </div>
+                <div style="right: 11px; top: 14px; position: absolute;"
+                    *ngIf="!current_token && origin != 'admission'">Token: <b
+                        style="font-size: 16px;">{{confirmBooking.token || '-'}} </b></div>
+                <div style="right: 11px; top: 14px; position: absolute;" *ngIf="current_token && origin != 'admission'">
+                    Token: <b style="font-size: 16px;">{{current_token || '-'}} </b></div>
+                <div style="right: 0px; top: 14px; position: absolute;" *ngIf="origin == 'admission'">Fees: <b
+                        style="font-size: 16px;"> Rs. {{consultation_fees || '-'}} </b></div>
+                <div style="left: 11px; bottom: 11px; position: absolute;">
+                    <span style="border: 1px solid; border-radius: 3px; padding: 3px 5px;"
+                        *ngIf="confirmBooking.consultation_type">
+                        <b>{{confirmBooking.consultation_type || '-'}} Consultation</b>
+                    </span>
+                </div>
+                <!-- <div style="left: 220px; bottom: 11px; position: absolute;" *ngIf="origin != 'admission'">
+                    Reporting Time: <b style="font-size: 16px;"> {{confirmBooking.approx_time== null?(confirmBooking.appointment_date|date:'shortTime'):confirmBooking.approx_time}}</b>
+                </div> -->
+                <div style="right: 11px; bottom: 11px; position: absolute;" *ngIf="origin != 'admission'">
+                    Fees: <b style="font-size: 16px;"> Rs. {{consultation_fees || '-'}} </b>
+                </div>
+            </div>
+            <div style="height: 30.26px; left: 11.3px; width: 579px; top: 532.1px; position: absolute;">
+
+            </div>
+        </div>
+    </div>
+</div>

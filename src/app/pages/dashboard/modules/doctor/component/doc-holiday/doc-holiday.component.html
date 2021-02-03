@@ -1,0 +1,70 @@
+<div class="card p-0 card-height-auto">
+    <div class="card-title">
+        <img src="../../../../../../../assets/img/icons/profile/HOLIDAY.png" width="20px" alt="">
+        <span class="ms-2">Holiday</span>
+    </div>
+    <div class="card-content">
+        <form #f="ngForm" (ngSubmit)="createHolidays(f)" class="mt-0 p-3" *ngIf="role=='Admin'">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" id="start_date" [(ngModel)]="holidays.start_date" min="00:00"
+                            class="form-control" name="start_time" required />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        <label for="end_date">End Date</label>
+                        <input type="date" id="end_date" [(ngModel)]="holidays.end_date" min="{{holidays.start_date}}"
+                            class="form-control" name="end_time" required />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <mat-form-field class="w-100">
+                    <mat-label>Slots</mat-label>
+                    <mat-select name="slots" [(ngModel)]="holidays.slots" multiple>
+                        <mat-optgroup *ngFor="let day of slots" [label]="day.day">
+                            <mat-option *ngFor="let slot of day.online_slots" [value]="slot.id">
+                                <span class="pull-right text-success">{{slot.start_time}} to {{slot.end_time}} </span>
+                            </mat-option>
+                            <mat-option *ngFor="let slot of day.offline_slots" [value]="slot.id">
+                                {{slot.start_time}} to {{slot.end_time}}
+                            </mat-option>
+                        </mat-optgroup>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary" [disabled]="!f.valid || disable">Submit</button>
+            </div>
+        </form>
+        <div class="p-3" style="position: relative;">
+            <app-loader [loading]="loading"></app-loader>
+            <p *ngIf="allholidays.length == 0" class="text-center text-muted">No upcomming Holidays for this doctor
+            </p>
+            <ul class="app-list p-0">
+                <li class="app-list-item d-flex" *ngFor="let holiday of allholidays">
+                    <div class="wrapper" style="flex:1">
+                        <div class="d-flex align-items-center">
+                            <span class="material-icons">event</span> &nbsp;
+                            <span class="text-light">{{holiday.start_date|date}} to {{holiday.end_date|date}}</span>
+                            <div class="logo ms-auto">
+                                <span class="material-icons" style="cursor: pointer;"
+                                    (click)="deleteHoliday(holiday)">clear</span>
+                            </div>
+                        </div>
+                        <div class="slot mt-1">
+                            <div class="time me-2" *ngFor="let slot of holiday.slots; index as i">
+                                <!-- <span class="material-icons">query_builder</span> &nbsp; -->
+                                {{slot.start_time}} to {{slot.end_time}}
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

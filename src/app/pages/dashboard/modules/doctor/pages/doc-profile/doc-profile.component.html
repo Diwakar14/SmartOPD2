@@ -1,0 +1,28 @@
+<div class="page-container">
+    <div id="page-header" class="align-items-end pb-2 mb-3">
+        <div class="d-flex align-items-baseline">
+            <h1 class="mb-0">Doctor Profile</h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/home">Home</a></li>
+                <li class="breadcrumb-item"><a routerLink="/dashboard/doctor">Doctors</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-8 col-lg-8">
+                <app-doc-profile-basic [loading]="loading" [doctorData]="doctor"></app-doc-profile-basic>
+                <app-doc-chart [loading]="loading" [chartTitle]="'Monthly Appointment'"></app-doc-chart>
+                <app-doc-chart [loading]="loading" [chartTitle]="'Revenue'"></app-doc-chart>
+                <app-doc-review></app-doc-review>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <app-appnts [doctorId]="doctorId"></app-appnts>
+                <app-doc-holiday [doctorId]="doctorId"></app-doc-holiday>
+                <app-doc-patients></app-doc-patients>
+            </div>
+        </div>
+    </div>
+</div>

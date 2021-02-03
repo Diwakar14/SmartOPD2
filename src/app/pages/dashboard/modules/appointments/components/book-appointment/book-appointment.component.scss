@@ -1,0 +1,16 @@
+.book-appnt{
+    padding: 1.5rem;
+    margin-bottom: 1rem
+}
+
+section{
+    margin-top: 1rem;
+}
+
+
+
+@media(min-width: 1500px){
+    .book-appnt{
+        padding: 1.5rem 4rem;
+    }
+}

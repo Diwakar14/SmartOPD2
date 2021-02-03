@@ -1,0 +1,253 @@
+<div class="page-container">
+    <div id="page-header">
+        <h1>Dashboard</h1>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+    </div>
+    <br>
+    <div class="row" id="page-content">
+        <div class="col-md-5">
+            <div class="card-none appointments-area">
+                <h5 class="mb-2 bo">Appointments</h5>
+                <div class="stats">
+                    <div class="me-5">
+                        <label>Overall</label>
+                        <h2>5.4M</h2>
+                    </div>
+                    <div class="me-5">
+                        <label>Today</label>
+                        <h2>300</h2>
+                    </div>
+                    <div>
+                        <label>This Month</label>
+                        <h2>25,000</h2>
+                    </div>
+
+                </div>
+            </div>
+            <app-chart [chartRef]="bulletChartRef" style="width: 100%;">
+            </app-chart>
+            <ng-template #bulletChartRef>
+                <div class="bubbleChart pt-2" #chart></div>
+            </ng-template>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card departments-area mb-0">
+                <h5 class="border-bottom pb-2">Bookings</h5>
+
+                <table class="departments">
+                    <thead>
+                        <tr>
+                            <td width="60%">Department</td>
+                            <td width="20%" class="text-center">Monthly</td>
+                            <td width="20%" class="text-center">Today</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fa fa-plus-circle" aria-hidden="true"></i>Orthopaedic</td>
+                            <td class="text-center black">1500</td>
+                            <td class="text-center black">10</td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="fa fa-plus-circle" aria-hidden="true"></i>Physician</td>
+                            <td class="text-center black">1500</td>
+                            <td class="text-center black">10</td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="fa fa-plus-circle" aria-hidden="true"></i>Neurology</td>
+                            <td class="text-center black">1500</td>
+                            <td class="text-center black">10</td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="fa fa-plus-circle" aria-hidden="true"></i>Emergency</td>
+                            <td class="text-center black">1500</td>
+                            <td class="text-center black">10</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-plus-circle" aria-hidden="true"></i>Emergency</td>
+                            <td class="text-center black">1500</td>
+                            <td class="text-center black">10</td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="fa fa-plus-circle" aria-hidden="true"></i>Emergency</td>
+                            <td class="text-center black">1500</td>
+                            <td class="text-center black">10</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="col-md-3" id="item-cards">
+            <div class="card flex-row align-items-center">
+                <div class="icon gradient-bg-cyan">
+                    <i class="fa fa-building" aria-hidden="true"></i>
+                </div>
+                <div class="ps-3 d-flex align-items-center justify-content-between flex-fill">
+                    <h5>Departments</h5>
+                    <h4>200</h4>
+                </div>
+            </div>
+            <div class="card flex-row align-items-center ">
+                <div class="icon gradient-bg-lamp">
+                    <i class="fa fa-user-md" aria-hidden="true"></i>
+                </div>
+                <div class="ps-3 d-flex align-items-center justify-content-between flex-fill">
+                    <h5>Doctors</h5>
+                    <h4>200</h4>
+                </div>
+            </div>
+            <div class="card flex-row align-items-center">
+                <div class="icon gradient-bg-mint">
+                    <i class="fa fa-bed" aria-hidden="true"></i>
+                </div>
+                <div class="ps-3 d-flex align-items-center justify-content-between flex-fill">
+                    <h5>Patients</h5>
+                    <h4>200</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <h5 class="border-bottom pb-2">Revenues</h5>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="totalPatient mt-3 mb-3">Total Patient Per Day</div>
+                <div style="text-align:center" class="d-flex ">
+                    <div class="details d-flex flex-column justify-content-evenly">
+                        <div class="avarage">
+                            <h6>Average</h6>
+                            <h2>405.95</h2>
+                        </div>
+                        <div class="d-flex">
+                            <div class="chart-label">
+                                <div class="dot bg-cyan mb-2"></div>
+                                <h6>Admitted</h6>
+                                <h4>290</h4>
+                            </div>
+                            <div class="border-left chart-label">
+                                <div class="dot bg-orange mb-2"></div>
+                                <h6>Discharge</h6>
+                                <h4>115</h4>
+                            </div>
+                        </div>
+                        <button class="btn btn-block btn-custom">STAT</button>
+                    </div>
+                    <app-chart [chartRef]="areaChart" [data]="{chartData:chartOptions}" style="width: 100%;">
+                    </app-chart>
+                    <ng-template #areaChart let-chartOptions="chartData">
+                        <apx-chart style="width: 100%;" [series]="chartOptions.series"
+                            [dataLabels]="chartOptions.dataLabels" [chart]="chartOptions.chart"
+                            [tooltip]="chartOptions.tooltip" [stroke]="chartOptions.stroke"
+                            [xaxis]="chartOptions.xaxis">
+                        </apx-chart>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <app-chart [chartRef]="donutChartRef" style="width: 100%;">
+                </app-chart>
+                <ng-template #donutChartRef>
+                    <div class="donutChart" #donutChart></div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="page-content">
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="border-bottom pb-2">Labratory</h5>
+                <app-chart [chartRef]="columnChartRef" style="width: 100%;">
+                </app-chart>
+                <ng-template #columnChartRef>
+                    <div class="columnChart pt-2" #columnChart></div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="border-bottom pb-2 mb-2">Doctor on Holiday</h5>
+                <div style="text-align:center">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Doctor</th>
+                                <th>From Date</th>
+                                <th>Till Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <div class="d-flex me-2 align-items-center">
+                                        <img class="doc-photo me-2"
+                                            src="../../../../../assets/img/icons/doctor_grey.png" width="100%" alt="">
+                                        <span>Dr. Helen White</span>
+                                    </div>
+                                </th>
+                                <td>20 Dec, 2020</td>
+                                <td>29 Dec, 2020</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="d-flex me-2 align-items-center">
+                                        <img class="doc-photo me-2"
+                                            src="../../../../../assets/img/icons/doctor_grey.png" width="100%" alt="">
+                                        <span>Dr. Helen White</span>
+                                    </div>
+                                </th>
+                                <td>20 Dec, 2020</td>
+                                <td>29 Dec, 2020</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="d-flex me-2 align-items-center">
+                                        <img class="doc-photo me-2"
+                                            src="../../../../../assets/img/icons/doctor_grey.png" width="100%" alt="">
+                                        <span>Dr. Helen White</span>
+                                    </div>
+                                </th>
+                                <td>20 Dec, 2020</td>
+                                <td>29 Dec, 2020</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="d-flex me-2 align-items-center">
+                                        <img class="doc-photo me-2"
+                                            src="../../../../../assets/img/icons/doctor_grey.png" width="100%" alt="">
+                                        <span>Dr. Helen White</span>
+                                    </div>
+                                </th>
+                                <td>20 Dec, 2020</td>
+                                <td>29 Dec, 2020</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <div class="d-flex me-2 align-items-center">
+                                        <img class="doc-photo me-2"
+                                            src="../../../../../assets/img/icons/doctor_grey.png" width="100%" alt="">
+                                        <span>Dr. Helen White</span>
+                                    </div>
+                                </th>
+                                <td>20 Dec, 2020</td>
+                                <td>29 Dec, 2020</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

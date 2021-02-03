@@ -1,0 +1,18 @@
+.patient{
+    padding: 1.5rem;
+    margin-bottom: 1rem
+}
+.patient .content{
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.ava-30{
+    width: 30px;
+}
+
+@media(min-width: 1500px){
+    .patient{
+        padding: 1.5rem 4rem;
+    }
+}

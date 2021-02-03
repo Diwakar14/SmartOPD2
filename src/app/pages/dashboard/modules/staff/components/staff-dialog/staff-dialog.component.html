@@ -1,0 +1,79 @@
+<div class="position-relative">
+    <div class="blocker" [hidden]="!loading">
+        <img src="../../../../../assets/img/icons/tail-spin.svg" width="40px" alt="loading">
+    </div>
+    <div class="dialog-header d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <div class="dialog-icon me-2">
+                <span class="material-icons">
+                    person_add
+                </span>
+            </div>
+            <div class="dialog-title">{{update==false?'Add Staff':'Update Staff'}}</div>
+        </div>
+        <div class="dialog-close" mat-button (click)="close_pat()">
+            <span class="material-icons">clear</span>
+        </div>
+    </div>
+    <form class="m-0 p-0" #f="ngForm" (ngSubmit)="addStaff(f)">
+        <div class="dialog-content">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label for="">Name *</label>
+                        <input type="text" [(ngModel)]="staff.name" class="form-control" name="name" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label for="">Username *</label>
+                        <input type="text" [(ngModel)]="staff.username" class="form-control" name="username" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label for="">Role *</label>
+                        <select name="roll" class="form-control" [(ngModel)]="staff.role">
+                            <option value="Admin">Admin</option>
+                            <option value="Operator">Operator</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="mb-3">
+                        <label for="">Phone Number</label>
+                        <input type="text" minlength="10" maxlength="10" [(ngModel)]="staff.phone" #phone="ngModel"
+                            (change)="checkUniqueness(phone)" class="form-control" name="phone">
+                        <small *ngIf="phoneUniqueErrors">Checking...</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6 col-lg-6">
+                    <label for="">Email</label>
+                    <input type="text" [(ngModel)]="staff.email" class="form-control" name="email">
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <label for="">{{update == true? 'New Password' : 'Password *'}}</label>
+                    <input type="password" [(ngModel)]="staff.password" class="form-control" name="password"
+                        [required]="!update">
+                </div>
+            </div>
+        </div>
+        <div class="dialog-footer">
+            <button type="button" class="btn btn-primary btn-sm me-2" (click)="disableStaff()" *ngIf="update">
+                Disable Staff
+                <img src="../../../../../../../assets/img/icons/tail-spin.svg" [hidden]="!disabled" alt="img"
+                    width="20px">
+            </button>
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="(!f.valid) || loading" cdkFocusInitial>
+                {{update==false?'Add Staff':'Update Staff'}}
+                <img src="../../../../../../../assets/img/icons/tail-spin.svg" [hidden]="!loading" alt="img"
+                    width="20px">
+            </button>
+        </div>
+    </form>
+</div>

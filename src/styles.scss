@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './mat_theme.scss';
+@import './assets/css/bootstrap.min.css';
+@import './theme.scss';
+@import './custom.scss';
+@import './assets/css/tagify.css';
+
+@import './assets/css/animate.min.css';
+
+
+*{
+    outline: none !important;
+}
+.mat-dialog-container {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+.mat-drawer-inner-container{
+  overflow: unset !important;
+}
+.ms-choice {
+    border: none !important;
+}
+
+.form-control{
+  border-bottom: 2px solid #aaa !important;
+  padding: 0 !important;
+  height: unset !important;
+}
+  

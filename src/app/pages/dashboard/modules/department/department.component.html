@@ -1,0 +1,31 @@
+<div class="page-container">
+    <div id="page-header" class="align-items-end pb-2">
+        <div class="d-flex align-items-baseline">
+            <h1 class="mb-0">Departments</h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Departments</li>
+            </ol>
+        </div>
+        <div class="secondary d-flex ms-auto align-items-center">
+            <div class="inputBox ms-2" style="width: 20rem;">
+                <input type="text" #searchDepartment autocomplete="off" class="searchInput"
+                    placeholder="Search by name" />
+                <button class="search">
+                    <img src="../../../../../assets/img/icons/search.svg" style="width: 20px;opacity:.5" />
+                </button>
+            </div>
+            <!-- <div class="d-flex align-items-center">
+                <button class="btn btn-primary ms-2">New Department</button>
+            </div> -->
+        </div>
+    </div>
+    <div class="page-content mt-3 position-relative">
+        <div class="blocker p-3" [hidden]="!loading">
+            <img src="../../../../../assets/img/icons/tail-spin.svg" width="40px" alt="">
+        </div>
+        <div class="list">
+            <app-dept-card *ngFor="let department of filteredDepartment" [department]="department"></app-dept-card>
+        </div>
+    </div>
+</div>

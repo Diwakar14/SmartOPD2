@@ -1,0 +1,40 @@
+<div class="card p-0 m-0 card-height-auto" (deferLoad)="department.photo">
+    <div class="card-image">
+        <img src="{{department.photo||'../../../../../assets/img/icons/doctors/member3.png'}}" width="100%"
+            alt="loading...">
+        <!-- <img src="../../../../../assets/img/icons/doctors/member3.png" width="100%" alt="loading..."> -->
+    </div>
+    <div class="card-content p-3">
+        <h5 class="mb-0">{{department.name}}</h5>
+        <div class="text-cyan-dark text-small-2">{{department.doctor_count}} Doctors</div>
+
+        <div class="text-muted mt-2 pt-2 border-top text-small-2">
+            Monthly Appointments
+        </div>
+        <div class="d-flex mt-2">
+            <div class="d-flex align-items-center">
+                <div class="icon">
+                    <img src="../../../../../assets/img/icons/profile/ONLINE-CONSULTATION.png" width="100%" alt="">
+                </div>
+                <div class="ms-2">
+                    <div class="text-muted text-small">
+                        Online
+                    </div>
+                    <div class="text-cyan-dark text-small-2">200</div>
+                </div>
+            </div>
+            <div class="d-flex ms-4 align-items-center">
+                <div class="icon">
+                    <img src="../../../../../assets/img/icons/profile/OPD-VISIT.png" width="100%" alt="">
+                </div>
+                <div class="ms-2">
+                    <div class="text-muted text-small">
+                        OPD
+                    </div>
+                    <div class="text-cyan-dark text-small-2">400</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

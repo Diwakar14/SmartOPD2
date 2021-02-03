@@ -1,0 +1,10 @@
+<div class="switch-wrp d-flex align-items-center">
+    <label [for]="!isActive?'':'switch'" [class.disabled]="isActive">{{leftLabel}}</label>
+    <label for="switch">
+        <input type="checkbox" [(ngModel)]="isActive" #check (click)="onChange(check)" name="switch" id="switch">
+        <div class="custom">
+            <div class="thumb" [class.active]="isActive"></div>
+        </div>
+    </label>
+    <label [for]="isActive?'':'switch'" [class.disabled]="!isActive">{{rightLabel}}</label>
+</div>

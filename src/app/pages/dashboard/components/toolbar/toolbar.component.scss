@@ -1,0 +1,73 @@
+.navbar{
+    background: #ffffff !important;
+    box-shadow: 0 0 20px #e0e0e5;
+    padding: 0;
+    z-index: 100;
+    .container-fluid{
+        padding: 0;
+    }
+}
+#navbar-logo, #profile-pic{
+    margin-left:1.5rem;
+    margin-right: 1rem;
+    height: 2.75rem;
+}
+#profile-pic{
+    margin-left:0rem;
+    border-radius: 50px;
+}
+.noStyleBtn{
+    i{
+        font-size: 22px !important;
+    }
+}
+.navbar-brand{
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 700;
+    color: #ffa500 !important;
+    font-size: 1.5rem;
+}
+.navbar-nav .nav-item{
+    margin-right: 1.2rem;
+    display: flex;
+    align-items: center;
+    .date{
+        background-color: #f7f9fc;
+        letter-spacing: .5px;
+        line-break: normal;
+        padding: 6px 18px;
+        border-radius: 8px;
+        font-size: .9rem;
+        color: #9e9fa1 !important;
+    }
+}
+.side-navbar-toggle{
+    padding: 1.5rem 41px;
+    width: 100px;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #fff;
+    i{
+        font-size: 20px;
+        color: #ffa500;
+    }
+}
+.navbar-nav .nav-link{
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    font-weight: 500;
+    color: #9e9fa1 !important;
+}
+
+.navbar-nav .nav-link:hover,.navbar-nav .nav-item.active .nav-link{
+    color: #0b1845 !important;
+}
+
+@media(min-width: 1500px){
+    #navbar-logo, #profile-pic{
+        margin-left:3.2rem;
+    }
+}

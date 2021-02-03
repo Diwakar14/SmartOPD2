@@ -1,0 +1,117 @@
+<div class="page-container">
+    <div id="page-header" class="align-items-end pb-2">
+        <div class="d-flex align-items-baseline">
+            <h1 class="mb-0">All Doctors</h1>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard/home">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+            </ol>
+        </div>
+        <div class="secondary d-flex ms-auto align-items-center">
+            <div class="d-flex align-items-center">
+                <app-switch [leftLabel]="'List View'" [rightLabel]="'Grid View'" (changeSwitch)="onChange($event)">
+                </app-switch>
+
+                <div class="inputBox flex align-items-center ms-2 me-2" style="width: 23rem;">
+                    <input type="text" #searchDoctor autocomplete="off" class="searchInput"
+                        placeholder="Search by doctor by name, reference id, phone number" />
+                    <button class="search">
+                        <img src="../../../../../../../assets/img/icons/search.svg" style="width: 20px;" />
+                    </button>
+                </div>
+                <button class="btn btn-primary">New Doctor</button>
+            </div>
+        </div>
+    </div>
+    <div class="content position-relative">
+        <app-loader [loading]="loading"></app-loader>
+        <div @fadeOut>
+            <ng-template #gridView>
+                <ng-template ngFor let-dept [ngForOf]="filteredDoctors" let-docI="index">
+                    <div class="tag">
+                        <img src="{{dept.icon}}" alt="department" style="width: 20px;">
+                        <div class="text-cyan ms-2">{{dept.name|uppercase}}</div>
+                    </div>
+                    <div class="grid-view">
+                        <app-doc-card *ngFor="let doc of dept.doctors; index as i" [docData]="doc"></app-doc-card>
+                    </div>
+                </ng-template>
+            </ng-template>
+        </div>
+
+        <ng-template #listView [ngIf]="isGridView" [ngIfThen]="listView" [ngIfElse]="gridView">
+            <table class="table table-borderless mt-3" @fadeOut>
+                <thead>
+                    <tr>
+                        <th scope="col" width="1%"></th>
+                        <th scope="col" width="5%" class="text-center">Regt. Id</th>
+                        <th scope="col" width="15%">Name</th>
+                        <th scope="col" width="10%" class="text-center">Department</th>
+                        <th scope="col" class="text-left text-center" width="10%">No. Of Apnts.</th>
+                        <th scope="col" class="text-center" width="10%">Designation</th>
+                        <th scope="col" class="text-center" width="10%" style="padding-right: 30px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-template ngFor let-dept [ngForOf]="filteredDoctors" let-docI="index">
+                        <tr *ngFor="let doc of dept.doctors; index as i" routerLink="{{doc.doctor_id}}">
+                            <td>
+                                <img (deferLoad)="doc.doctor" loading="lazy"
+                                    src="{{doc.doctor.photo||'../../../../../assets/img/icons/doctor_grey.png'}}"
+                                    class="doc-profile-pic d-block m-auto" />
+                            </td>
+                            <td class="text-muted text-center">
+                                {{doc.doctor.ref_id||'-'}}
+                            </td>
+                            <td>
+                                {{doc.doctor.name||'-'}}
+                            </td>
+                            <td class="text-cyan text-center">
+                                {{(dept.name||'-')|uppercase}}
+                            </td>
+                            <td class="text-left text-center">
+                                {{23}}
+                            </td>
+                            <td class="text-center ">
+                                {{doc.designation||'-'}}
+                            </td>
+                            <td class="text-center" [class.text-orange]="doc.isActive">
+                                {{doc.isActive?'Available':'Unavailable'}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </table>
+        </ng-template>
+
+        <p *ngIf="filteredDoctors.length == 0" class="text-center text-muted">No Doctors</p>
+
+        <!-- <pagination-template *ngIf="doctors.length >0" #p="paginationApi" [id]="config.id"
+            (pageChange)="config.currentPage = $event; getPage($event)">
+            <div class="pagination">
+                <div class="page-item pagination-previous" [class.disabled]="p.isFirstPage()">
+                    <button [disabled]="p.isFirstPage()" (click)="p.previous()">
+                        <i class="material-icons">chevron_left</i>
+                    </button>
+                </div>
+
+                <div class="page-item" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+                    <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                        <span>{{ page.label }}</span>
+                    </a>
+                    <div *ngIf="p.getCurrent() === page.value">
+                        <span>{{ page.label }}</span>
+                    </div>
+                </div>
+                <div class="page-item pagination-next" [class.disabled]="p.isLastPage()">
+                    <button [disabled]="p.isLastPage()" (click)="p.next()">
+                        <i class="material-icons">chevron_right</i>
+                    </button>
+                </div>
+            </div>
+
+        </pagination-template> -->
+    </div>
+    <br>
+</div>

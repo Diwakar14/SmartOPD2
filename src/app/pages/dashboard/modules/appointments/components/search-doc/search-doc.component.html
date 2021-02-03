@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-title">Search Doctor</div>
+    <div class="card-content">
+        <div class="inputBox flex align-items-center">
+            <input type="search" #searchDocAppnt autocomplete="off" class="searchInput"
+                placeholder="Search by doctor by name, reference id, phone number" />
+            <button class="search">
+                <img [hidden]="loadingSearchDataDoc" src="../../../../../../../assets/img/icons/search.svg"
+                    style="width: 20px;" />
+                <span [hidden]="!loadingSearchDataDoc">
+                    <img src="../../../../../../../assets/img/icons/tail-spin.svg" width="20px" alt="">
+                </span>
+            </button>
+        </div>
+        <div class="search-results">
+            <ng-template ngFor let-dept [ngForOf]="filteredDoctors" let-docI="index">
+                <app-search-result-items *ngFor="let doctor of dept.doctors; index as i" [item]="doctor"
+                    (onChange)="onSelected($event)">
+                </app-search-result-items>
+            </ng-template>
+        </div>
+    </div>
+</div>

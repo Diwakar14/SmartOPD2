@@ -1,0 +1,92 @@
+
+#side-bar{
+    padding-top: 0.5rem;
+    height: calc(100vh - 73px);
+    overflow-y: scroll;
+    z-index: 2;
+    background: white;
+    box-shadow: 0 0 20px #e0e0e588;
+    -ms-overflow-style: none;  /* IE and Edge */
+    transition: all ease 0.2s;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#side-bar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#side-bar:hover{
+    -ms-overflow-style: auto;
+    scrollbar-width: 1px;
+}
+
+#side-bar ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+#side-bar ul li a{
+    display: flex;
+    align-items: center ;
+    margin: 0.8rem 0;
+    padding: 1rem 2.2rem;
+    transition: all ease 0.3s;
+    color: #b8bccd;
+    cursor: pointer;
+
+}
+
+.activeLink{
+    background: linear-gradient(90deg,rgba(185, 185, 255, 0.5),rgba(255,255,255,1)50%);
+    color: #4d566c;
+    i{
+        color: #000 !important;
+    }
+    label{
+        color: #4d566c !important;
+    }
+}
+
+
+#side-bar ul li a:hover{
+    background: linear-gradient(90deg,rgba(185, 185, 255, 0.5),rgba(255,255,255,1)50%);
+    transition: all ease 0.3s;
+    color: #4d566c;
+    i{
+        color: #000;
+        transition: all ease 0.3s;
+    }
+    label{
+        color: #4d566c;
+    }
+}
+
+#side-bar ul li a i{
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+    width: 20px;
+    color: #b8bccd;
+    transition: all ease 0.3s;
+}
+
+#side-bar ul li a label{
+    margin-left: 1.5rem;
+    margin-bottom: 0;
+    opacity: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #b8bccd;
+    transform: translateX(0px);
+    transition: all ease .2s;
+
+}
+
+#side-bar.side-bar-collapsed ul li a label{
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease .2s;
+    transform: translateX(-10px);
+}

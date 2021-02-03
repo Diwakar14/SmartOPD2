@@ -1,0 +1,16 @@
+.search-item{
+    padding: .5rem .6rem;
+    .logo{
+        width: 50px;
+    }
+    .content{
+        .desig{
+            font-size: .9rem;
+        }
+    }
+
+    &:hover{
+        background-color: rgba(238, 238, 238, 0.452);
+        cursor: pointer;
+    }
+}

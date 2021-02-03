@@ -1,0 +1,36 @@
+.dashboard{
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.main{
+    display: flex;
+    width:100%;
+}
+
+.main-content{
+    width: 100%;
+    height: calc(100vh - 73px);
+    opacity: 0;
+    transform: translateY(-20);
+    transition: all ease-in-out 200ms;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.loaded{
+    opacity: 1;
+    transform: translateY(0);
+    transition: all ease-in-out 200ms;
+}
+
+
+.sidebarCollapsed{
+    width: 95px;
+    transition: all cubic-bezier(0.24, -0.15, 0, 0.99) 0.3s;
+}
+.sidebarNonCollapsed{
+    width: 260px;
+    transition: all cubic-bezier(0.24,-0.15, 0, 0.99) 0.3s;
+}

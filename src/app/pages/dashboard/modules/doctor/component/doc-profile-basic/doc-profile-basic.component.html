@@ -1,0 +1,183 @@
+<div class="card card-height-auto">
+    <div class="blocker" [hidden]="!loading">
+        <img src="../../../../../../../assets/img/icons/tail-spin.svg" alt="" width="40px">
+    </div>
+    <div class="header position-relative">
+        <div class="designation d-flex align-items-center">
+            <img src="{{doctorData?.doctor_detail?.department?.icon||'../../../../../../../assets/img/icons/profile/CHOLESTROL.png'}}"
+                alt="" width="20px">
+            <span class="ms-2">{{doctorData?.doctor_detail?.designation||'-'}}</span>
+        </div>
+        <div class="rating">
+            <i class="fa fa-star ms-2"></i>
+            <span class="ms-2">4.5</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="d-flex align-items-end ">
+            <div class="profile-pic me-3">
+                <img src="{{doctorData?.photo||'../../../../../../../assets/img/icons/doctor_grey.png'}}" alt="doc1"
+                    width="100%">
+            </div>
+            <div class="profile-details position-relative" style="flex:1">
+                <h5>{{doctorData?.name || '-'}}</h5>
+                <small>{{doctorData?.ref_id||'-'}} | 40 Appointments till date</small>
+                <div class="text-muted text-small">D.O.B: {{doctorData?.dob||'-'}}</div>
+                <div class="genderIcon d-flex justify-content-center">
+                    <i class="fa fa-venus"></i>
+                </div>
+            </div>
+        </div>
+        <section class="mt-4 pb-4 border-bottom">
+            <div class="sec-title text-cyan">Fees</div>
+            <div class="row mt-2">
+                <div class="col-sm-6 col-md-6 d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="icon">
+                            <img src="../../../../../../../assets/img/icons/profile/ONLINE-CONSULTATION.png"
+                                alt="online" width="100%">
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-muted text-small">Online Consultation</div>
+                            <strong>{{doctorData?.doctor_detail?.online_fees||'-'}}</strong>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center ms-4">
+                        <div class="icon">
+                            <img src="../../../../../../../assets/img/icons/profile/OPD-VISIT.png" alt="online"
+                                width="100%">
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-muted text-small">OPD Visit</div>
+                            <strong>{{doctorData?.doctor_detail?.offline_fees||'-'}}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 d-flex justify-content-end align-items-center">
+                    <div class="btn btn-primary">Deactivate doctor</div>
+                    <div class="btn btn-outline-primary ms-2">Remove doctor</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row mt-3">
+            <div class="col-sm-6 col-md-6">
+                <section class="mt-4 mb-4" style="border-right:1px solid #dee2e6">
+                    <div class="sec-title text-cyan">Medical Information</div>
+                    <div class="row mt-3">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="iconCircular">
+                                    <img src="../../../../../../../assets/img/icons/profile/DEPARTMENT.png" alt="online"
+                                        width="100%">
+                                </div>
+                                <div class="ms-3">
+                                    <div class="text-muted text-small">Department</div>
+                                    <strong>{{doctorData?.doctor_detail?.department?.name||'-'}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="d-flex align-items-center ms-3">
+                                <div class="iconCircular">
+                                    <img src="../../../../../../../assets/img/icons/profile/EXPERIENCE.png" alt="online"
+                                        width="100%">
+                                </div>
+                                <div class="ms-3">
+                                    <div class="text-muted text-small">Experience</div>
+                                    <strong>{{doctorData?.doctor_detail?.experience||'-'}} years</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mt-4">
+                        <div class="iconCircular">
+                            <img src="../../../../../../../assets/img/icons/profile/EDUCATION.png" alt="online"
+                                width="100%">
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-muted text-small">Qualification</div>
+                            <strong>
+                                <ng-template ngFor let-quali [ngForOf]="doctorData?.doctor_detail?.qualifications"
+                                    let-end="last">
+                                    {{quali}} <span *ngIf="!end">,</span>
+                                </ng-template>
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                        <div class="iconCircular">
+                            <img src="../../../../../../../assets/img/icons/profile/SPECIALISATION.png" alt="online"
+                                width="100%">
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-muted text-small">Specialisation</div>
+                            <strong>
+                                <ng-template ngFor let-speci [ngForOf]="doctorData?.doctor_detail?.specializations"
+                                    let-end="last">
+                                    {{speci}}<span *ngIf="!end">,</span>
+                                </ng-template>
+                            </strong>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <section class="mt-4 pb-4">
+                    <div class="sec-title text-cyan">Contact Information</div>
+                    <div class="row mt-3">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="iconCircular">
+                                    <img src="../../../../../../../assets/img/icons/profile/CALL.png" alt="online"
+                                        width="100%">
+                                </div>
+                                <div class="ms-3">
+                                    <div class="text-muted text-small">Phone</div>
+                                    <strong>{{doctorData?.phone||'-'}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="d-flex align-items-center ms-3">
+                                <div class="iconCircular">
+                                    <img src="../../../../../../../assets/img/icons/profile/WHATSAPP.png" alt="online"
+                                        width="100%">
+                                </div>
+                                <div class="ms-3">
+                                    <div class="text-muted text-small">Whatsapp</div>
+                                    <strong>{{doctorData?.whatsapp_number||'-'}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mt-4">
+                        <div class="iconCircular">
+                            <img src="../../../../../../../assets/img/icons/profile/EMAIL.png" alt="online"
+                                width="100%">
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-muted text-small">Email</div>
+                            <strong>{{doctorData?.email||'-'}}</strong>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                        <div class="iconCircular">
+                            <img src="../../../../../../../assets/img/icons/profile/ADDRESS.png" alt="online"
+                                width="100%">
+                        </div>
+                        <div class="ms-3">
+                            <div class="text-muted text-small">Address</div>
+                            <strong>{{(doctorData?.address?.address_line_1||'') +' '+
+                                (doctorData?.address?.address_line_2||'') +'
+                                '+ (doctorData?.address?.city||'')+' '+ (doctorData?.address?.country||'-')}}</strong>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</div>
