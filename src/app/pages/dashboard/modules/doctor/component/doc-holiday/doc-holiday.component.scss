@@ -33,22 +33,22 @@
 
 .app-list-item:last-child{
     &::before{
-             height: 100%;
-    top: 0px;
+        height: 100%;
+        top: 0px;
     }
 }
 
 
 .slot{
-    font-size: .9rem;
+    font-size: .8rem;
     display: flex;
     flex-wrap: wrap;
 }
 
 .time{
-    background: linear-gradient(-45deg, #FFE7AE, #FFC98E);
+    background: linear-gradient(45deg, #FFE7AE, #FFC98E);
     padding: 2px 5px;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-top: 8px;
     color:#00997C;
 }

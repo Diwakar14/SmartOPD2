@@ -18,11 +18,14 @@ h1,h2,h3,h4,h5,h6{
     font-weight: 400;
 }
 .text-muted{
-    color: #6d6e70 !important;
+    color: #929497 !important;
     font-weight: 400;
 }
 .text-small{
     font-size: .75rem;
+}
+.text-spacing{
+    letter-spacing: 0.1rem;
 }
 .side-navbar-toggle{
     margin-right: 1rem;
@@ -319,7 +322,7 @@ textarea,input.form-control:focus{
         padding-top: 2rem;
     }
     .page-container{
-        padding: 1.5rem 6rem;
+        padding: 1.5rem 2rem;
     }
     
     .grid-view{

@@ -5,10 +5,10 @@
         <ng-template #monthly>
             <img src="../../../../../../../assets/img/icons/profile/MONTHLY-APPOINTMENTS.png" width="20px" alt="">
         </ng-template>
-        <span class="ms-2">{{chartTitle||'Chart Title'}}</span>
+        <span class="ms-3">{{chartTitle||'Chart Title'}}</span>
     </div>
     <div class="card-content position-relative">
-        <div class="blocker" *ngIf="loading; else content">
+        <div class="blocker p-3" *ngIf="loading; else content">
             <img src="../../../../../../../assets/img/icons/spinning-circles.svg" width="40px" alt="loading...">
         </div>
         <ng-template #content>

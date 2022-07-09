@@ -1,3 +1,5 @@
+import { MatDialog } from '@angular/material/dialog';
+import { PatientDialogComponent } from './components/patient-dialog/patient-dialog.component';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination/dist/ngx-pagination.module';
 import { fromEvent, of, Subscription } from 'rxjs';
@@ -24,10 +26,13 @@ export class PatientsComponent implements OnInit, AfterViewInit, OnDestroy {
   };
   query: string;
   searchSubscription = new Subscription()
-
   @ViewChild('searchPatient') searchPatient: ElementRef;
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService, private dialog: MatDialog) {
+  }
+
+  ngOnInit(): void {
+    this.getPage(1);
   }
 
   ngAfterViewInit(): void {
@@ -35,15 +40,14 @@ export class PatientsComponent implements OnInit, AfterViewInit, OnDestroy {
       .pipe(
         debounceTime(1000),
         map((event: Event) => {
-          this.query = (<HTMLInputElement>event.target).value
-          return this.query;
+          return (<HTMLInputElement>event.target).value
         }),
         distinctUntilChanged(),
         tap(() => {
           this.loading = true;
           this.filteredPatients = [];
         }),
-        switchMap(value => this.patientService.searchPatients(this.query).pipe(catchError(err => of({ data: { data: [] } }))))
+        switchMap(value => this.patientService.searchPatients(value).pipe(catchError(err => of({ data: { data: [] } }))))
       )
       .subscribe((res: any) => {
         this.filteredPatients = res.data.data;
@@ -57,9 +61,7 @@ export class PatientsComponent implements OnInit, AfterViewInit, OnDestroy {
       );
   }
 
-  ngOnInit(): void {
-    this.getPage(1);
-  }
+
 
   getPage(page: number) {
     this.loading = true;
@@ -76,6 +78,21 @@ export class PatientsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.loading = false;
       }
     );
+  }
+
+  addPatient() {
+    this.dialog.open(PatientDialogComponent, {
+      width: '450px',
+      data: { origin: 'patients', type: 'create' },
+      id: 'createPatient',
+      disableClose: true
+    });
+    this.dialog.getDialogById('createPatient').afterClosed().pipe(take(1)).subscribe(
+      (data: any) => {
+        if (data.patient != null || data.patient != undefined)
+          this.ngOnInit();
+      }
+    )
   }
 
   ngOnDestroy(): void {

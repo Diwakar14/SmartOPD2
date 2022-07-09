@@ -18,7 +18,10 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "lodash"
+              "core-js",
+              "raf",
+              "xlsx",
+              "@babel/runtime"
             ],
             "outputPath": "dist/SmartOpd",
             "index": "src/index.html",

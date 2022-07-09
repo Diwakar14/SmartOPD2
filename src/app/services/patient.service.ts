@@ -46,6 +46,6 @@ export class PatientService {
     return this.http.get(environment.endPoint + "/patients?page=" + number);
   }
   addPatients(patient) {
-    return this.http.post(environment.endPoint + "/patients", patient, { reportProgress: true, observe: 'events' });
+    return this.http.post(environment.endPoint + "/patients", patient);
   }
 }

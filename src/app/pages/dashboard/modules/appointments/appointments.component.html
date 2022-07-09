@@ -39,10 +39,10 @@
             <thead>
                 <tr>
                     <th scope="col" width="14%">Appnt. Date</th>
-                    <th scope="col" class="text-center" width="10%">Booking ID</th>
+                    <th scope="col" width="10%">Booking ID</th>
                     <th scope="col" width="15%">Patient</th>
                     <th scope="col" class="text-left" width="20%">Doctor</th>
-                    <th scope="col" class="text-center" width="5%">Status</th>
+                    <th scope="col" width="5%" style="padding-left: 24px;">Status</th>
                     <th scope="col" class="text-center" width="10%">Created On</th>
                 </tr>
             </thead>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-muted text-center">
+                    <td class="text-muted">
                         <span class="showDetails">{{appnt.booking_id==null?'-':appnt.booking_id}}</span>
                     </td>
                     <td>
@@ -78,12 +78,12 @@
                                 <a routerLink="/dashboard/doctor/{{appnt.doctor_id}}">
                                     {{appnt.doctor.name==null?'-':appnt.doctor.name}}</a>
                             </div>
-                            <div class="text-small text-cyan ms-2" *ngIf="appnt.doctor.doctor_detail">
+                            <div class="text-small text-cyan ms-2 text-spacing" *ngIf="appnt.doctor.doctor_detail">
                                 {{appnt.doctor.doctor_detail.designation|uppercase}}
                             </div>
                         </div>
                     </td>
-                    <td *ngIf="appnt.status.status" class="text-muted text-center ">
+                    <td *ngIf="appnt.status.status" class="text-muted">
                         <span class="px-2" [class.booked]="appnt.status.status == 'Booked'"
                             *ngIf="appnt.status.status == 'Booked'">
                             BOOKED

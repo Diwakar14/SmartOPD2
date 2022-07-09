@@ -16,7 +16,6 @@ import { QuickAccessComponent } from './components/quick-access/quick-access.com
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ClickOutsideDirective } from 'src/app/directives/click-outside.directive';
-import { DeferLoadDirective } from 'src/app/directives/defer-load.directive';
 import { QuickAccessItemsComponent } from './components/quick-access/components/quick-access-items/quick-access-items.component';
 
 
@@ -33,7 +32,6 @@ const MATERIAL_COMPONENTS = [
     SidebarComponent,
     ToolbarComponent,
     QuickAccessComponent,
-    DeferLoadDirective,
     ConfirmDialogComponent,
     ClickOutsideDirective,
     QuickAccessItemsComponent,

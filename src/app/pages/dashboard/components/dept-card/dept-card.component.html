@@ -1,6 +1,7 @@
-<div class="card p-0 m-0 card-height-auto" (deferLoad)="department.photo">
+<div class="card p-0 m-0 card-height-auto">
     <div class="card-image">
-        <img src="{{department.photo||'../../../../../assets/img/icons/doctors/member3.png'}}" width="100%"
+        <img (deferLoad)="department.photo"
+            src="{{department.photo||'../../../../../assets/img/icons/doctors/member3.png'}}" width="100%"
             alt="loading...">
         <!-- <img src="../../../../../assets/img/icons/doctors/member3.png" width="100%" alt="loading..."> -->
     </div>

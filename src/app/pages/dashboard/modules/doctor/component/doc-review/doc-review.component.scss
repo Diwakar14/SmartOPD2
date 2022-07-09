@@ -1,3 +1,6 @@
+.material-icons{
+    font-size: .7rem !important;
+}
 .list-item{
     display: flex;
     align-items: flex-start;
@@ -20,20 +23,24 @@
     h5{
         text-transform: uppercase;
         color: #6d6e70;
-        font-size: .9rem;
+        font-size: .8rem;
         font-weight: 500;
+        margin-bottom: 0;
     }
 }
 .rating{
     margin-left: .5rem;
     .heading{
         display: flex;
+        align-items: center;
         h5{
-            font-size: 1rem;
+            font-size: 0.8rem;
+            margin-bottom: 0;
         }
     }
     .review{
-        font-size: .9rem;
+        font-size: .8rem;
+        margin-top: .5rem;
     }
 }
 
@@ -44,6 +51,7 @@
 .disease{
     padding: 0 2rem;
     color: #089eae;
+    font-size: .8rem;
 }
 .line{
     width: 1px;

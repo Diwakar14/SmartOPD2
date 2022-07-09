@@ -26,7 +26,6 @@
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th width="1%"></th>
                     <th width="15%">Name</th>
                     <th width="10%">Username</th>
                     <th width="5%">Role</th>
@@ -37,12 +36,6 @@
             <tbody>
                 <tr *ngFor="let staff of filteredStaff|paginate: config" (click)="editStaff(staff)">
                     <td>
-                        <div class="avatar m-auto">
-                            <img src="{{staff.photo == null? '../../../../../assets/img/icons/profile/DUMMY-PROFILE.png':staff.photo}}"
-                                alt="" width="100%">
-                        </div>
-                    </td>
-                    <td style="vertical-align: middle;">
                         {{(staff.name || '-')|uppercase}}
                     </td>
                     <td class="text-muted">
@@ -60,7 +53,7 @@
                 </tr>
             </tbody>
         </table>
-        <p *ngIf="filteredStaff.length == 0" class="text-center text-light-b">No Staff</p>
+        <p *ngIf="filteredStaff.length == 0" class="text-center text-muted">No Staff</p>
 
         <br>
         <pagination-template #p="paginationApi" [id]="config.id"

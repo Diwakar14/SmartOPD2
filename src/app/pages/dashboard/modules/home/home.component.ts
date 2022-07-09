@@ -1,4 +1,4 @@
-import { ElementRef, AfterViewInit } from '@angular/core';
+import { ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -32,7 +32,11 @@ export type ChartOptions = {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  private _bulletChart: any;
+  private _columnChart: any;
+  private _donutChart: any;
 
   @ViewChild('chart') chart: ElementRef<HTMLDivElement>;
   @ViewChild('columnChart') columnChart: ElementRef<HTMLDivElement>;
@@ -42,6 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor() {
 
   }
+
 
   ngOnInit(): void {
     this.chartOptions = {
@@ -92,12 +97,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     am4core.useTheme(am4themes_animated);
+    am4core.options.autoDispose = true;
     this.createBulletChart();
     this.createDonutChart();
     this.createColumnChart();
+
   }
-
-
 
   createColumnChart() {
     let chart = am4core.create(this.columnChart.nativeElement, am4charts.XYChart);
@@ -180,6 +185,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     // Cursor
     chart.cursor = new am4charts.XYCursor();
+    this._columnChart = chart;
   }
 
   createBulletChart() {
@@ -273,6 +279,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     valueAxis.cursorTooltipEnabled = false;
     chart.arrangeTooltips = false;
+    this._bulletChart = chart;
   }
 
   private createRange(axis, from, to, color) {
@@ -327,6 +334,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     donutChart.legend = new am4charts.Legend();
     donutChart.legend.position = "bottom";
-
+    this._donutChart = donutChart;
   }
+
+  ngOnDestroy(): void {
+    // if (this._columnChart && this._bulletChart && this._donutChart) {
+    //   this._columnChart.dispose();
+    //   this._bulletChart.dispose();
+    //   this._donutChart.dispose();
+    // }
+  }
+
 }

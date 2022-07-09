@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
@@ -34,6 +35,7 @@ export class AppntsComponent implements OnInit {
   getDates() {
     this.loading = true;
     this.appointmentService.getAppointmentsForADoc(this.doctorId, true)
+      .pipe(take(1))
       .subscribe(
         (res: any) => {
           this.appointmentDates = res.dates;
@@ -41,15 +43,17 @@ export class AppntsComponent implements OnInit {
           if (this.appointmentDates.length > 0)
             this.bookingDate = this.appointmentDates[0].db_date;
 
-          this.appointmentService.getBookingForADoc(this.doctorId, this.bookingDate).subscribe(
-            (res: any) => {
-              this.slots = res.slots;
-              this.loading = false;
-            },
-            err => {
-              this.loading = false;
-            }
-          );
+          this.appointmentService.getBookingForADoc(this.doctorId, this.bookingDate)
+            .pipe(take(1))
+            .subscribe(
+              (res: any) => {
+                this.slots = res.slots;
+                this.loading = false;
+              },
+              err => {
+                this.loading = false;
+              }
+            );
         },
         err => {
           if (err.error.message == 'No Bookings') {
@@ -77,15 +81,17 @@ export class AppntsComponent implements OnInit {
     this.bookingDate = date;
     this.slots = [];
     this.appointments = [];
-    this.appointmentService.getBookingForADoc(this.doctorId, this.bookingDate).subscribe(
-      (res: any) => {
-        this.slots = res.slots;
-        this.loading = false;
-      },
-      err => {
-        this.loading = false;
-      }
-    )
+    this.appointmentService.getBookingForADoc(this.doctorId, this.bookingDate)
+
+      .pipe(take(1)).subscribe(
+        (res: any) => {
+          this.slots = res.slots;
+          this.loading = false;
+        },
+        err => {
+          this.loading = false;
+        }
+      )
     this.addActiveClass(event);
   }
 

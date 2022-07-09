@@ -17,17 +17,17 @@
                         <img src="../../../../../assets/img/icons/search.svg" style="width: 20px;opacity:.5" />
                     </button>
                 </div>
-                <button class="btn btn-primary">New Patient</button>
+                <button class="btn btn-primary" (click)="addPatient()">New Patient</button>
             </div>
         </div>
     </div>
-    <div class="page-content mt-2 position-relative">
+    <div class="page-content mt-3 position-relative">
         <app-loader [loading]="loading"></app-loader>
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th class="text-center" width="5%">Reference ID</th>
-                    <th class="" width="15%">Patient</th>
+                    <th class="text-center" width="10%">Reference ID</th>
+                    <th width="15%">Patient</th>
                     <th class="text-center" width="10%">Contact</th>
                     <th class="text-center" width="10%">Gender</th>
                     <th class="text-center" width="10%">Age</th>
@@ -36,7 +36,7 @@
             </thead>
             <tbody>
                 <tr role="link" *ngFor="let patient of filteredPatients | paginate: config"
-                    routerLink="/dashboard/patient/{{patient.id}}">
+                    routerLink="/dashboard/patients/{{patient.id}}">
                     <td class="text-center text-muted">
                         {{ patient.ref_id||'-' }}
                     </td>
